@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} Products {% endblock %}
+
+{% block content %}
+
+{% for product in products|dictsort:'title' %}
+    <p>{{ product.title }}</p>
+    <a href="{% url 'product' product.id %}">Подробнее</a>
+{% empty %}
+    <h3>Товаров нет</h3>
+{% endfor %}
+
+{% endblock %}

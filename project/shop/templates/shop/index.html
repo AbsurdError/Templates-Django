@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+    {% include 'shop/header.html' %}
+
+
+    <h1>{{ header }}</h1>
+    <h2> Наш пользователь </h2>
+    {% for key, value in user.items %}
+        <p> {{ key }}: {{ value }} </p>
+    {% endfor %}
+
+    <p>Знает языки программирования: {{ langs.2 }} </p>
+    {% for lang in langs %}
+        <p>{{ lang }}</p>
+    {% endfor %}
+    <p>Адрес: улица {{ address.0 }}, дом {{ address.1 }}, кв. {{ address.2 }} </p>
+    {% autoescape off %}
+        {{ text }}
+    {% endautoescape %}
+
+    <h4>{% now 'j, F, y, P' %}</h4>
+
+</body>
+</html>
